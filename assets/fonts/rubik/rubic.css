@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 100 900;  /* Диапазон от Thin до Black */
+    src: url('Rubik-VariableFont_wght.ttf') format('truetype-variations');
+    src: url('Rubik-VariableFont_wght.ttf') format('truetype') tech('variations');
+    src: url('Rubik-VariableFont_wght.ttf') format('truetype-variations');
+    font-display: swap;
+}
+
+/* Курсив (вариабельный) */
+@font-face {
+    font-family: 'Rubik';
+    font-style: italic;
+    font-weight: 100 900;  /* Диапазон от Thin до Black */
+    src: url('Rubik-Italic-VariableFont_wght.ttf') format('truetype-variations');
+    src: url('Rubik-Italic-VariableFont_wght.ttf') format('truetype') tech('variations');
+    src: url('Rubik-Italic-VariableFont_wght.ttf') format('truetype-variations');
+    font-display: swap;
+}

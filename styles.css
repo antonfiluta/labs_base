@@ -1,0 +1,6 @@
+@import url(assets/fonts/muli-webfont/muli-webfont.css);
+@import url(assets/fonts/rubik/rubic.css);
+
+body {
+    font-family: 'Muli';
+}
