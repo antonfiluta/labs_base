@@ -1,0 +1,96 @@
+.skill-item {
+    position: fixed;
+    width: 25px;
+    transition: opacity 1s ease;
+
+    filter: drop-shadow(0 5px 2px rgba(0, 0, 0, 0.25));
+    
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-timeline: scroll();
+    animation-range: 0dvh 100dvh;
+
+    &[alt="html"],
+    &[alt="figma"],
+    &[alt="typescript"],
+    &[alt="angular"] {
+        width: 21px;
+    }
+    
+    &[alt="css"] { animation-name: moveCSS, moveToPosition; }
+    &[alt="html"] { animation-name: moveHTML, moveToPosition; }
+    &[alt="js"] { animation-name: moveJS, moveToPosition; }
+    &[alt="nodejs"] { animation-name: moveNodeJS, moveToPosition; }
+    &[alt="git"] { animation-name: moveGit, moveToPosition; }
+    &[alt="figma"] { animation-name: moveFigma, moveToPosition; }
+    &[alt="typescript"] { animation-name: moveTypeScript, moveToPosition; }
+    &[alt="angular"] { animation-name: moveAngular, moveToPosition; }
+    &[alt="react"] { animation-name: moveReact, moveToPosition; }
+    &[alt="vue"] { animation-name: moveVue, moveToPosition; }
+    &[alt="github"] { animation-name: moveGitHub, moveToPosition; }
+}
+
+
+@keyframes moveToPosition {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes moveCSS {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-20.5dvw, 24dvh); }
+}
+
+@keyframes moveHTML {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-39.5dvw, -20.5dvh); }
+}
+
+@keyframes moveJS {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(40dvw, 15dvh); } 
+}
+
+@keyframes moveNodeJS {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(22.5dvw, -37.5dvh); }
+}
+
+@keyframes moveGit {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(4.5dvw, -24dvh); }
+}
+
+@keyframes moveFigma {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(12.5dvw, 14.5dvh); }
+}
+
+@keyframes moveTypeScript {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-37.5dvw, 34.5dvh); }
+}
+
+@keyframes moveAngular {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-22.5dvw, -35.5dvh); }
+}
+
+@keyframes moveReact {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30dvw, 32.5dvh); }
+}
+
+@keyframes moveVue {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-45dvw, 9.5dvh); }
+}
+
+@keyframes moveGitHub {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(42.5dvw, -11dvh); }
+}
