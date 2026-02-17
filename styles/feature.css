@@ -497,7 +497,58 @@ label {
 
 
 
+.glass {
+  /* Эффект размытия */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
+  box-shadow:
+    /* Нижний и правый эффект глубины */
+    inset -0.75px -0.5px rgba(255, 255, 255, 0.1),
+    /* Верхний и левый эффект глубины */
+    inset +0.75px +0.5px rgba(255, 255, 255, 0.025),
+    /* Эффект тени */
+    3px 2px 10px rgba(0, 0, 0, 0.25),
+    /* Короткий подповерхностный эффет */
+    inset 0px 0px 10px 5px rgba(255, 255, 255, 0.025),
+    /* Длинный подповерхностный эффект */
+    inset 0px 0px 40px 5px rgba(255, 255, 255, 0.025);
+
+  /* Позволяем дочерним элементам заполнять родительский */
+  position: relative;
+
+  /* Скругляем углы */
+  border-radius: 5px;
+
+  /* Скрываем углы заголовка */
+  overflow: hidden;
+}
+
+.glass::before {
+  /* Заставляем элемент рендериться */
+  content: "";
+
+  /* Применяем фоновое изображение */
+  background-image: url(path/to/light.png);
+  background-repeat: repeat;
+  background-size: 750px;
+
+  /* Регулируем яркость */
+  opacity: 0.075;
+
+  /* Заполняем фоновое пространство */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  /* Рендерим за другими дочерними элементами */
+  z-index: -1;
+
+  /* Исправляем отражение в экран */
+  background-attachment: fixed;
+}
 
 
 

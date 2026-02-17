@@ -8,7 +8,7 @@
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-timeline: scroll();
-    animation-range: 0dvh 100dvh;
+    animation-range: 0dvh 180dvh;
 
     &[alt="html"],
     &[alt="figma"],
@@ -34,63 +34,88 @@
 @keyframes moveToPosition {
     0% {
         opacity: 0;
+        scale: 0;
+        width: 25px;
+    }
+    50% {
+        opacity: 0.8;
+        scale: 1;
+        width: 25px;
+    }
+    70% {
+        opacity: 0.8;
+        scale: 1;
+        width: 25px;
     }
     100% {
-        opacity: 0.8;
+        opacity: 0;
+        scale: 1.1;
+        width: 0;
     }
 }
 
 @keyframes moveCSS {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(-20.5dvw, 24dvh); }
+    50% { transform: translate(-19.5dvw, 22dvh); }
+    100% { transform: translate(-19.5dvw, 22dvh); }
 }
 
 @keyframes moveHTML {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(-39.5dvw, -20.5dvh); }
+    50% { transform: translate(-38.5dvw, -18.5dvh); }
+    100% { transform: translate(-38.5dvw, -18.5dvh); }
 }
 
 @keyframes moveJS {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(40dvw, 15dvh); } 
+    50% { transform: translate(39dvw, 11dvh); }
+    100% { transform: translate(39dvw, 11dvh); }
 }
 
 @keyframes moveNodeJS {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(22.5dvw, -37.5dvh); }
+    50% { transform: translate(21.5dvw, -33.5dvh); }
+    100% { transform: translate(21.5dvw, -33.5dvh); }
 }
 
 @keyframes moveGit {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(4.5dvw, -24dvh); }
+    50% { transform: translate(3.5dvw, -20dvh); }
+    100% { transform: translate(3.5dvw, -20dvh); }
 }
 
 @keyframes moveFigma {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(12.5dvw, 14.5dvh); }
+    50% { transform: translate(12.5dvw, 16.5dvh); }
+    100% { transform: translate(12.5dvw, 16.5dvh); }
 }
 
 @keyframes moveTypeScript {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(-37.5dvw, 34.5dvh); }
+    50% { transform: translate(-36.5dvw, 31.5dvh); }
+    100% { transform: translate(-36.5dvw, 31.5dvh); }
 }
 
 @keyframes moveAngular {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(-22.5dvw, -35.5dvh); }
+    50% { transform: translate(-21.5dvw, -31.5dvh); }
+    100% { transform: translate(-21.5dvw, -31.5dvh); }
 }
 
 @keyframes moveReact {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(30dvw, 32.5dvh); }
+    50% { transform: translate(27dvw, 29.5dvh); }
+    100% { transform: translate(27dvw, 29.5dvh); }
 }
 
 @keyframes moveVue {
     0% { transform: translate(0, 0); }
+    50% { transform: translate(-45dvw, 9.5dvh); }
     100% { transform: translate(-45dvw, 9.5dvh); }
 }
 
 @keyframes moveGitHub {
     0% { transform: translate(0, 0); }
+    50% { transform: translate(42.5dvw, -11dvh); }
     100% { transform: translate(42.5dvw, -11dvh); }
 }
