@@ -112,7 +112,6 @@
   }
 }
 
-/* Индивидуальные настройки для каждой звезды */
 .star:nth-child(1) {
   top: calc(40% - 100px);
   left: calc(80% - 300px);
@@ -154,7 +153,7 @@
   left: calc(30% - 250px);
   animation-delay: 4700ms;
   background: linear-gradient(-45deg, #9d7bf0, rgba(116, 62, 228, 0));
-  animation-duration: 3500ms; /* Более медленная звезда */
+  animation-duration: 3500ms;
 }
 .star:nth-child(4)::before, 
 .star:nth-child(4)::after {
@@ -175,7 +174,6 @@
   animation-delay: 2100ms;
 }
 
-/* Добавим еще несколько звезд для разнообразия */
 .star:nth-child(6) {
   top: calc(30% - 150px);
   left: calc(50% - 100px);
@@ -204,7 +202,6 @@
   animation-duration: 4000ms;
 }
 
-/* Варианты для разных размеров */
 .star.large {
   height: 2px;
 }
@@ -221,38 +218,4 @@
 .star.small::before,
 .star.small::after {
   height: 1px;
-}
-
-/* Адаптация для мобильных */
-@media (max-width: 768px) {
-  @keyframes shooting {
-    100% {
-      transform: translateX(250px) translateY(150px);
-    }
-  }
-  
-  .star:nth-child(1) {
-    top: calc(40% - 50px);
-    left: calc(80% - 150px);
-  }
-  
-  .star:nth-child(2) {
-    top: calc(60% - 25px);
-    left: calc(60% - 95px);
-  }
-  
-  .star:nth-child(3) {
-    top: calc(45% - 45px);
-    left: calc(30% - 100px);
-  }
-  
-  .star:nth-child(4) {
-    top: calc(70% - 25px);
-    left: calc(30% - 125px);
-  }
-  
-  .star:nth-child(5) {
-    top: calc(75% - 95px);
-    left: calc(16% - 100px);
-  }
 }

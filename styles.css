@@ -3,6 +3,7 @@
 
 @import url(styles/header.css);
 @import url(styles/stars.css);
+@import url(styles/main.css);
 
 
 * {
@@ -44,5 +45,3 @@ body::before {
 button, a {
     cursor: url(assets/images/favicon/pointer.ico);
 }
-
-
