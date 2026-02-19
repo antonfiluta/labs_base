@@ -12,56 +12,32 @@
     <meta name="theme-color" content="#191919">
 </head>
 <body>
-    <div class="app-header__wrapper">
-        <header class="app-header">
-            <h1>Web Labs Launcher</h1>
-
-            <img src="../../assets/images/icons/css_icon.png" alt="css" class="skill-item">
-            <img src="../../assets/images/icons/html_icon.png" alt="html" class="skill-item">
-            <img src="../../assets/images/icons/js_icon.png" alt="js" class="skill-item">
-            <img src="../../assets/images/icons/nodejs_icon.png" alt="nodejs" class="skill-item">
-            <img src="../../assets/images/icons/git_icon.png" alt="git" class="skill-item">
-            <img src="../../assets/images/icons/figma_icon.png" alt="figma" class="skill-item">
-            <img src="../../assets/images/icons/typescript_icon.png" alt="typescript" class="skill-item">
-            <img src="../../assets/images/icons/angular_icon.png" alt="angular" class="skill-item">
-            <img src="../../assets/images/icons/react_icon.png" alt="react" class="skill-item">
-            <img src="../../assets/images/icons/vue_icon.png" alt="vue" class="skill-item">
-            <img src="../../assets/images/icons/github_icon.png" alt="github" class="skill-item">
-
-            <p class="app-header__description">quickly launch any lab</p>
-        </header>
-
-        <a href="../../index.html" class="app-header__logo">
-            <img src="../../assets/images/images/app_logo.png" alt="app logo">
-        </a>
-
-        <div class="app-header__link__wrapper">
-                <a href="www.linkedin.com/in/anton-filiuta-336951314" class="app-header__link" data-link-type="linkedin">
-                    <img src="../../assets/images/icons/linkedin_link_icon.png" alt="linkedin link">
-                </a>
-
-                <a href="https://github.com/antonfiluta" class="app-header__link" data-link-type="github"> 
-                    <img src="../../assets/images/icons/github_link_icon.png" alt="github link">
-                </a>
-            </div>
-    </div>
-
     <main>
         <table>
             <tr>
                 <td rowspan="5" data-fill="h1_img">
-                    <h1>Заголовок 1</h1>
-                    <img src="../../assets/images/icons/html_icon.png" alt="">
+                    <div>
+                        <h1>Загол 1</h1>
+                        <img src="../../assets/images/icons/html_icon.png" alt="html" width="20" height="60">
+                    </div>
                 </td>
-                <td colspan="4">Заголовок 2</td>
-                <td rowspan="5">Картинка 3</td>
-                <td>Заголовок 3</td>
+                <td colspan="4" data-fill="heading1">
+                    <h2 style="color: darkviolet;">Загол 2</h2>
+                </td>
+                <td rowspan="5">
+                    <img src="../../assets/images/icons/css_icon.png" alt="css">
+                </td>
+                <td>
+                    <h3 style="color: darkviolet;">Загол 3</h3>
+                </td>
             </tr>
 
             <tr class="high">
-                <td rowspan="2">
-                    <p>Текст 1</p>
-                    <p>Текст 6</p>
+                <td rowspan="2" data-fill="text1_text6">
+                    <div>
+                        <p>Ad voluptate rem vero? Sapiente doloremque corrupti aspernatur quia officiis perferendis similique, sint error nobis impedit quisquam quam voluptatibus, consectetur placeat facere!</p>
+                        <p><em style="color: red;">Mollitia</em> labore sapiente, ducimus atque eaque placeat perspiciatis fugit velit aspernatur esse similique sed cumque blanditiis doloribus nam facilis, suscipit nisi <b style="color: blue;">eius!</b></p>
+                    </div>
                 </td>
                 <td rowspan="4" data-fill="list1">
                     <ol>
@@ -86,8 +62,12 @@
                         </li>
                     </ol>
                 </td>
-                <td rowspan="2">Текст 3</td>
-                <td rowspan="2">Текст 4</td>
+                <td rowspan="2" data-fill="text3">
+                    <p>Eos cum illum, natus suscipit mollitia rem repellat odio illo velit exercitationem.</p>
+                </td>
+                <td rowspan="2" data-fill="text4">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </td>
                 <td rowspan="4" data-fill="list3">
                     <ul data-list-level="level11">
                         <li>
@@ -138,7 +118,9 @@
             <tr></tr>
 
             <tr>
-                <td>Текст 2</td>
+                <td data-fill="text2">
+                    <p>Eum magni nam, autem eligendi vero, voluptas, culpa quaerat iste vel beatae quas reiciendis obcaecati mollitia!</p>
+                </td>
                 <td data-fill="list2">
                     <ul>
                         <li>
@@ -150,24 +132,22 @@
                         </li>
                     </ul>
                 </td>
-                <td>Картинка 1</td>
+                <td>
+                    <img src="../../assets/images/icons/js_icon.png" alt="js" width="40" height="50">
+                </td>
             </tr>
 
             <tr>
-                <td>Картинка 2</td>
-                <td colspan="2">Текст 5</td>
+                <td data-fill="img4">
+                    <img src="../../assets/images/icons/angular_icon.png" alt="angular" width="50" height="50">
+                </td>
+                <td colspan="2" data-fill="text5">
+                    <p>Dolorem sequi dolore, ratione minima id voluptatem repudiandae sint? Quos, labore amet.</p>
+                </td>
             </tr>
         </table>
     </main>
 
-    <div class="sky-container">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star large"></div>
-        <div class="star small"></div>
-    </div>
+    <!-- <script src="../../scripts/layout.js"></script> -->
 </body>
 </html>

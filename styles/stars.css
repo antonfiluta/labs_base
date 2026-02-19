@@ -6,7 +6,7 @@
   height: 100vh;
   transform: rotateZ(45deg);
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
 }
 

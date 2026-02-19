@@ -1,0 +1,132 @@
+@import url(../../styles/basic.css);
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+
+    padding: 250px 35px;
+}
+
+.block1 {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+
+    position: relative;
+
+    img:hover {
+        transition: 0.5s;
+        scale: 1.05;
+    }
+}
+
+.img-box {
+    display: flex;
+    gap: 55px;
+
+    img {
+        width: 100px;
+        filter: drop-shadow(0 10px 8px rgba(0,0,0,0.5));
+        transition: 0.3s ease;
+        animation: levitate 2s infinite ease-in-out;
+
+        &:nth-child(2) {
+            animation: levitate 2.5s infinite ease-in-out;
+        }
+    }
+
+    img:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 15px 12px rgba(0,0,0,0.6));
+    }
+}
+
+.vassal-img-box {
+    position: absolute;
+    top: -50px;
+
+    display: flex;
+    list-style-type: none;
+
+    li {
+        position: absolute;
+    }
+
+    img {
+        width: 30px;
+        filter: drop-shadow(0 10px 8px rgba(0,0,0,0.5));
+
+        transition: 0.3s ease;
+        animation: levitate 1.75s infinite ease-in-out;
+    }
+
+    &.left {
+        left: 0;
+
+        li:nth-child(1) {
+            top: 75px;
+            left: -45px;
+        }
+
+        li:nth-child(2) {
+            top: 20px;
+            left: -25px;
+
+            img {
+                width: 35px;
+            }
+        }
+
+        li:nth-child(3) {
+            top: 5px;
+            left: 30px;
+
+            img {
+                width: 33px;
+            }
+        }
+    }
+
+    &.right {
+        right: 0;
+
+        li:nth-child(1) {
+            top: 75px;
+            right: -50px;
+        }
+
+        li:nth-child(2) {
+            top: 20px;
+            right: -25px;
+
+            img {
+                width: 25px;
+            }
+        }
+
+        li:nth-child(3) {
+            top: 5px;
+            right: 30px;
+        }
+    }
+}
+
+.block2 {
+    display: flex;
+    gap: 35px;
+    text-align: justify;
+
+    p {
+        padding: 20px 30px;
+        border-radius: 15px;
+        font-size: 14px;
+    }
+}
+
+@keyframes levitate {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
