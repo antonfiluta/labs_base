@@ -7,13 +7,16 @@ main {
     gap: 45px;
 
     padding: 250px 35px;
+
+    input[type="radio"] {
+        display: none;
+    }
 }
 
 .block1 {
     display: flex;
     flex-direction: column;
     gap: 45px;
-
     position: relative;
 
     img:hover {
@@ -33,7 +36,7 @@ main {
         animation: levitate 2s infinite ease-in-out;
 
         &:nth-child(2) {
-            animation: levitate 2.5s infinite ease-in-out;
+            animation: levitate 2.3s infinite ease-in-out;
         }
     }
 
@@ -46,18 +49,18 @@ main {
 .vassal-img-box {
     position: absolute;
     top: -50px;
-
     display: flex;
     list-style-type: none;
 
     li {
         position: absolute;
+        color: rgba(255, 255, 255, 0.8);
+        transition: color 0.5s ease;
     }
 
     img {
         width: 30px;
         filter: drop-shadow(0 10px 8px rgba(0,0,0,0.5));
-
         transition: 0.3s ease;
         animation: levitate 1.75s infinite ease-in-out;
     }
@@ -113,6 +116,7 @@ main {
     }
 }
 
+
 .block2 {
     display: flex;
     gap: 35px;
@@ -122,11 +126,126 @@ main {
         padding: 20px 30px;
         border-radius: 15px;
         font-size: 14px;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
 
+
+.block3 {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+
+    label {
+        padding: 15px 25px;
+        border-radius: 15px;
+        display: block;
+        align-content: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        transition: 0.35s;
+        filter: drop-shadow(0 0px 8px rgba(0,0,0,0)) brightness(0.7);
+
+        img {
+            width: 45px;
+            transition: 0.35s;
+        }
+
+        &:has(img) {
+            padding: 5px 10px;
+        }
+
+        &:hover {
+            filter: drop-shadow(0 10px 8px rgba(0,0,0,0.3)) brightness(1);
+
+            img {
+                filter: invert(1);
+            }
+        }
+    }
+}
+
+input#action1:checked ~ .block3 label[for="action1"],
+input#action2:checked ~ .block3 label[for="action2"] {
+    filter: drop-shadow(0 10px 8px rgba(0,0,0,0.3)) brightness(1);
+}
+
+main:has(#action1:checked) .block3 label[for="action1"],
+main:has(#action2:checked) .block3 label[for="action2"],
+main:has(#action0:checked) .block3 label[for="action0"] {
+    background: rgba(116, 62, 228, 0.3);
+    border: 1px solid rgba(116, 62, 228, 0.5);
+    transform: scale(1.05);
+}
+
+main:has(#action1:checked) .block3 label[for="action1"],
+main:has(#action2:checked) .block3 label[for="action2"] {
+    animation: pulse 2s infinite;
+}
+
 @keyframes levitate {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+    0% { 
+        transform: translateY(0); 
+        filter: drop-shadow(0 10px 8px rgba(0,0,0,0.5));
+    }
+    50% { 
+        transform: translateY(-10px); 
+        filter: drop-shadow(0 20px 8px rgba(0,0,0,0.6));
+    }
+    100% { 
+        transform: translateY(0); 
+        filter: drop-shadow(0 10px 8px rgba(0,0,0,0.5));
+    }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(116, 62, 228, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(116, 62, 228, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(116, 62, 228, 0); }
+}
+
+main:has(#action1:checked) {
+    .block2 p:nth-child(even) {
+        font-size: 1.5em;
+        color: #f311fb;
+        text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    }
+
+    .block2 p:nth-child(odd) {
+        display: none;
+    }
+}
+
+main:has(#action2:checked) {
+    .block1 div img {
+        scale: 0.5;
+        filter: drop-shadow(0 5px 4px rgba(0,0,0,0.3));
+        transition: 0.5s;
+    }
+
+    .vassal-img-box li {
+        filter: drop-shadow(0 10px 8px rgba(255, 255, 255, 0.5));
+    }
+}
+
+main:has(#action0:checked) {
+    .block2 p {
+        font-size: 14px;
+        display: block;
+        text-shadow: none;
+    }
+
+    .block1 img {
+        transform: scale(1);
+        filter: drop-shadow(0 10px 8px rgba(0,0,0,0.5));
+    }
+
+    .block3 label[for="action0"] {
+        background: rgba(116, 62, 228, 0.3);
+        border: 1px solid rgba(116, 62, 228, 0.5);
+    }
+
+    .block3 label {
+        animation: none;
+    }
 }
