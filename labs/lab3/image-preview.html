@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Preview</title>
+    <link rel="stylesheet" href="preview-style.css">
+    <link rel="icon" type="image/png" href="../../assets/images/favicon/WLL_favicon.png">
+</head>
+<body>
+    <main>
+        <div class="container glass-effect" id="preview-container">
+            <div class="left-block">
+                <h1>🎨 Сгенерированное изображение</h1>
+            
+                <div class="image-wrapper">
+                    <div class="caption" id="image-caption"></div>
+                    <img id="preview-image" src="../../assets/images/images/gallery/city.jpg" alt="Custom Image">
+                </div>
+            </div>
+
+            <div class="right-block">
+                <div class="params glass-effect" id="params-list">
+                    <h3>📋 Выбранные параметры:</h3>
+                </div>
+                
+                <div class="close-btn">
+                    <button class="glass-effect" onclick="window.close()">✕ Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="sky-container">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star large"></div>
+        <div class="star small"></div>
+    </div>
+
+    <script src="preview-script.js"></script>
+</body>
+</html>

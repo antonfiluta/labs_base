@@ -13,9 +13,93 @@
 </head>
 <body>
     <main>
-        
+        <nav class="glass-effect">
+            <h3>🎨 Image Customizer</h3>
+            <p>Настройте параметры изображения</p>
+        </nav>
+
+        <section class="glass-effect">
+            <header>
+                <h2>Параметры картинки</h2>
+            </header>
+
+            <article>
+                <div class="select-group">
+                    <label for="caption">📝 Надпись:</label>
+                    <select id="caption" class="glass-effect">
+                        <option value="Космический пейзаж">Космический пейзаж</option>
+                        <option value="Горный массив">Горный массив</option>
+                        <option value="Морская гладь">Морская гладь</option>
+                        <option value="Городской сквер">Городской сквер</option>
+                        <option value="Лесная тропа">Лесная тропа</option>
+                    </select>
+                </div>
+
+                <div class="select-group">
+                    <label for="width">📏 Ширина:</label>
+                    <select id="width" class="glass-effect">
+                        <option value="200">200px</option>
+                        <option value="300">300px</option>
+                        <option value="400">400px</option>
+                        <option value="500">500px</option>
+                        <option value="600">600px</option>
+                    </select>
+                </div>
+
+                <div class="select-group">
+                    <label for="border-color">🎨 Цвет рамки:</label>
+                    <select id="border-color" class="glass-effect">
+                        <option value="#743ee4">Фиолетовый</option>
+                        <option value="#3b82f6">Синий</option>
+                        <option value="#ec4899">Розовый</option>
+                        <option value="#10b981">Зеленый</option>
+                        <option value="#f59e0b">Оранжевый</option>
+                    </select>
+                </div>
+
+                <div class="select-group">
+                    <label for="opacity">🔆 Прозрачность:</label>
+                    <select id="opacity" class="glass-effect">
+                        <option value="1">100%</option>
+                        <option value="0.8">80%</option>
+                        <option value="0.6">60%</option>
+                        <option value="0.4">40%</option>
+                        <option value="0.2">20%</option>
+                    </select>
+                </div>
+
+                <div class="select-group">
+                    <label for="image">🖼️ Изображение:</label>
+                    <select id="image" class="glass-effect">
+                        <option value="space">Космос</option>
+                        <option value="mountains">Горы</option>
+                        <option value="sea">Море</option>
+                        <option value="city">Город</option>
+                        <option value="forest">Лес</option>
+                    </select>
+                </div>
+
+                <button id="generate-btn" class="glass-effect">Сгенерировать</button>
+            </article>
+
+            <footer>
+                <p>Выберите параметры и нажмите кнопку</p>
+            </footer>
+        </section>
+
+        <aside class="glass-effect">
+            <h3>Выбранные параметры</h3>
+            <div id="selected-params">
+                <p class="param-item">Надпись: <span id="show-caption">—</span></p>
+                <p class="param-item">Ширина: <span id="show-width">—</span></p>
+                <p class="param-item">Цвет рамки: <span id="show-border">—</span></p>
+                <p class="param-item">Прозрачность: <span id="show-opacity">—</span></p>
+                <p class="param-item">Изображение: <span id="show-image">—</span></p>
+            </div>
+        </aside>
     </main>
 
     <script src="../../scripts/layout.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
