@@ -53,6 +53,8 @@
     }
 }
 
+
+
 @keyframes headerTransform {
     0% {
         height: 100dvh;
@@ -188,10 +190,12 @@
     justify-content: center;
     align-items: center;
 
-    width: 95px;
     height: 70px;
     border-radius: 10px;
+    gap: 20px;
+    padding: 0 20px;
 
+    text-decoration: none;
     transition: 0.3s ease;  
     opacity: 0;
 
@@ -217,6 +221,12 @@
         border-radius: 5px;
         transition: 0.3s ease;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    }
+
+    span {
+        color: #c4b5fd;
+        font-weight: 600;
+        letter-spacing: 1px;
     }
 }
 
@@ -252,7 +262,7 @@
         box-shadow: 0 10px 7px -3px rgba(0, 0, 0, 0.4);
     }
     50% { 
-        transform: translateY(-10px); 
+        transform: translateY(-7px); 
         box-shadow: 0 14px 10px -3px rgba(0, 0, 0, 0.55);
     }
 }

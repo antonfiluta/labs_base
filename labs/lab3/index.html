@@ -24,8 +24,11 @@
             </header>
 
             <article>
+                <div class="nebula-2"></div>
+                <div class="planet"></div>
+
                 <div class="select-group">
-                    <label for="caption">📝 Надпись:</label>
+                    <label for="caption">Надпись:</label>
                     <select id="caption" class="glass-effect">
                         <option value="Космический пейзаж">Космический пейзаж</option>
                         <option value="Горный массив">Горный массив</option>
@@ -36,18 +39,7 @@
                 </div>
 
                 <div class="select-group">
-                    <label for="width">📏 Ширина:</label>
-                    <select id="width" class="glass-effect">
-                        <option value="200">200px</option>
-                        <option value="300">300px</option>
-                        <option value="400">400px</option>
-                        <option value="500">500px</option>
-                        <option value="600">600px</option>
-                    </select>
-                </div>
-
-                <div class="select-group">
-                    <label for="border-color">🎨 Цвет рамки:</label>
+                    <label for="border-color">Цвет рамки:</label>
                     <select id="border-color" class="glass-effect">
                         <option value="#743ee4">Фиолетовый</option>
                         <option value="#3b82f6">Синий</option>
@@ -58,7 +50,18 @@
                 </div>
 
                 <div class="select-group">
-                    <label for="opacity">🔆 Прозрачность:</label>
+                    <label for="width">Ширина:</label>
+                    <select id="width" class="glass-effect">
+                        <option value="200">200px</option>
+                        <option value="300">300px</option>
+                        <option value="400">400px</option>
+                        <option value="500">500px</option>
+                        <option value="600">600px</option>
+                    </select>
+                </div>
+
+                <div class="select-group">
+                    <label for="opacity">Прозрачность:</label>
                     <select id="opacity" class="glass-effect">
                         <option value="1">100%</option>
                         <option value="0.8">80%</option>
@@ -69,7 +72,7 @@
                 </div>
 
                 <div class="select-group">
-                    <label for="image">🖼️ Изображение:</label>
+                    <label for="image">Изображение:</label>
                     <select id="image" class="glass-effect">
                         <option value="space">Космос</option>
                         <option value="mountains">Горы</option>
@@ -79,7 +82,9 @@
                     </select>
                 </div>
 
-                <button id="generate-btn" class="glass-effect">Сгенерировать</button>
+                <button id="generate-btn" class="glass-effect">
+                    <span>🚀 Запустить</span>
+                </button>
             </article>
 
             <footer>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Labs Launcher</title>
+    <title>Supermarket Survey | Web Labs Launcher</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -13,9 +13,194 @@
 </head>
 <body>
     <main>
+        <article class="survey-container">
+            <div class="survey-card">
+                <div class="survey-header">
+                    <h1>Supermarket Customer Survey</h1>
+                    <p class="survey-subtitle">Help us improve your shopping experience</p>
+                    <!-- <a href="../../index.html" class="back-link">
+                        <span>←</span> Back to Launcher
+                    </a> -->
+                </div>
+
+                <form id="surveyForm" class="survey-form">
+                    <!-- Hidden input -->
+                    <input type="hidden" id="formId" name="formId" value="survey_001">
+
+                    <h2 class="form-section-title">Personal Information</h2>
+
+                    <!-- Input text -->
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                    </div>
+
+                    <!-- Datetime-local -->
+                    <div class="form-group">
+                        <label for="visitDate">Visit Date & Time</label>
+                        <input type="datetime-local" id="visitDate" name="visitDate">
+                    </div>
+
+                    <h2 class="form-section-title">Shopping Preferences</h2>
+
+                    <!-- Checkbox group -->
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="grocery">
+                            <span>Grocery</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="electronics">
+                            <span>Electronics</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="clothing">
+                            <span>Clothing</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="home">
+                            <span>Home & Garden</span>
+                        </label>
+                    </div>
+
+                    <!-- Radio buttons -->
+                    <div class="form-group">
+                        <label class="radio-group-label">Shopping Frequency</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="frequency" value="daily">
+                                <span>Daily</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="frequency" value="weekly">
+                                <span>Weekly</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="frequency" value="monthly">
+                                <span>Monthly</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="frequency" value="rarely">
+                                <span>Rarely</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Select with options -->
+                    <div class="form-group">
+                        <label for="satisfaction">Satisfaction Level</label>
+                        <select id="satisfaction" name="satisfaction">
+                            <option value="">Select an option</option>
+                            <option value="very_satisfied">Very Satisfied</option>
+                            <option value="satisfied">Satisfied</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="unsatisfied">Unsatisfied</option>
+                            <option value="very_unsatisfied">Very Unsatisfied</option>
+                        </select>
+                    </div>
+
+                    <!-- Input number with max and step -->
+                    <div class="form-group">
+                        <label for="rating">Rating (1-10)</label>
+                        <input type="number" id="rating" name="rating" 
+                               min="1" max="10" step="1" value="5">
+                        <div class="range-hint">Rate your overall experience</div>
+                    </div>
+
+                    <!-- Form actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'%3E%3C/path%3E%3Cpolyline points='22 4 12 14.01 9 11.01'%3E%3C/polyline%3E%3C/svg%3E" 
+                                 alt="submit" class="btn-icon">
+                            Submit Survey
+                        </button>
+                        <button type="reset" class="reset-btn">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+        </article>
         
+        <aside class="info-sidebar">
+            <!-- Статистика магазина -->
+            <div class="info-card stats-card">
+                <h3>🏪 Supermarket Stats</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Surveys</span>
+                        <span class="stat-value" id="totalSurveys">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Average Rating</span>
+                        <span class="stat-value" id="avgRating">0.0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Today's Visitors</span>
+                        <span class="stat-value" id="todayVisitors">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Most Popular</span>
+                        <span class="stat-value" id="mostPopular">Grocery</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Информация о магазине -->
+            <div class="info-card about-card">
+                <h3>📍 About Our Store</h3>
+                <div class="store-info">
+                    <p><strong>GreenField Supermarket</strong> has been serving the community since 1995. We pride ourselves on quality products and exceptional customer service.</p>
+                    
+                    <div class="info-row">
+                        <span class="info-icon">🕒</span>
+                        <span>Open daily: 8am - 11pm</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        <span>123 Market Street, City Center</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">📞</span>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">⭐</span>
+                        <span>4.5/5 rating from 2,847 reviews</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Последние участники (будет обновляться через JS) -->
+            <div class="info-card participants-card">
+                <h3>👥 Recent Participants</h3>
+                <div id="recentParticipants" class="recent-participants">
+                    <!-- JS will populate this -->
+                    <div class="participant-placeholder">No surveys yet</div>
+                </div>
+            </div>
+
+            <!-- Специальные предложения -->
+            <div class="info-card offer-card">
+                <h3>🎉 Today's Offers</h3>
+                <div class="offer-item">
+                    <span class="offer-tag">-20%</span>
+                    <span>All organic products</span>
+                </div>
+                <div class="offer-item">
+                    <span class="offer-tag">Buy 1 Get 1</span>
+                    <span>Selected beverages</span>
+                </div>
+                <div class="offer-item">
+                    <span class="offer-tag">-15%</span>
+                    <span>For survey participants</span>
+                </div>
+                <div class="offer-code">
+                    <span>Use code: SURVEY15</span>
+                </div>
+            </div>
+        </aside>
     </main>
 
     <script src="../../scripts/layout.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -45,79 +45,279 @@ section {
         border-bottom: 1px solid rgba(116, 62, 228, 0.3);
         padding-bottom: 10px;
     }
-
-    article {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
 }
 
-.select-group {
+section article {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-
-    label {
-        color: #e0d9fc;
-        font-size: 16px;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-    }
-
-    select {
-        padding: 12px 15px;
-        background: rgba(30, 30, 40, 0.6);
-        border: 1px solid rgba(116, 62, 228, 0.3);
-        border-radius: 12px;
-        color: white;
-        font-size: 15px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        appearance: none;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23743ee4'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: right 15px center;
-        background-size: 20px;
-
-        &:hover {
-            border-color: rgba(116, 62, 228, 0.7);
-            background-color: rgba(40, 40, 50, 0.7);
-        }
-
-        &:focus {
-            outline: none;
-            border-color: #743ee4;
-            box-shadow: 0 0 15px rgba(116, 62, 228, 0.3);
-        }
-    }
+    gap: 20px;
+    position: relative;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(10, 5, 20, 0.3);
+    /* backdrop-filter: blur(5px); */
+    overflow: hidden;
+    border: 1px solid rgba(116, 62, 228, 0.2);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.3),
+        inset 0 0 50px rgba(116, 62, 228, 0.1);
 }
 
-#generate-btn {
-    margin-top: 15px;
-    padding: 15px 25px;
-    background: linear-gradient(175deg, #743ee4, #3d1f7a);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+section article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(2px 2px at 10px 20px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 30px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 50px 150px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(4px 4px at 150px 120px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 200px 180px, #fff, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 250px 60px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 300px 200px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 350px 90px, #fff, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 400px 150px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    opacity: 0.4;
+    animation: twinkle 4s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+section article::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(
+        circle at 30% 50%,
+        rgba(116, 62, 228, 0.15) 0%,
+        rgba(157, 123, 240, 0.1) 20%,
+        rgba(0, 0, 0, 0) 50%
+    );
+    filter: blur(30px);
+    animation: nebulaDrift 20s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+section article .nebula-2 {
+    position: absolute;
+    bottom: -30%;
+    right: -20%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(
+        circle at 70% 60%,
+        rgba(236, 72, 153, 0.1) 0%,
+        rgba(116, 62, 228, 0.1) 30%,
+        rgba(0, 0, 0, 0) 60%
+    );
+    filter: blur(40px);
+    animation: nebulaDriftReverse 18s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+}
+
+section article .planet {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        rgba(116, 62, 228, 0.2),
+        rgba(157, 123, 240, 0.1)
+    );
+    box-shadow: 
+        0 0 50px rgba(116, 62, 228, 0.3),
+        inset -10px -10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    animation: planetFloat 15s ease-in-out infinite;
+}
+
+section article .planet::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 40px;
+    transform: translate(-50%, -50%) rotate(15deg);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 30px rgba(116, 62, 228, 0.2);
+}
+
+section article .select-group {
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+section article .select-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    color: #e0d9fc;
+    text-shadow: 0 0 10px rgba(116, 62, 228, 0.5);
+    margin-bottom: 5px;
+}
+
+section article .select-group select {
+    background: rgba(15, 10, 25, 0.7);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23743ee4'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+    appearance: none;
+
+    border: 1px solid rgba(116, 62, 228, 0.3);
     border-radius: 15px;
+    padding: 14px 20px;
+    padding-right: 50px;
     color: white;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    font-size: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: none;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 30px rgba(116, 62, 228, 0.1);
+    position: relative;
+    filter: brightness(0.7);
+
 }
 
-#generate-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(116, 62, 228, 0.4);
-    background: linear-gradient(135deg, #8a5cf0, #4a2a9e);
+section article .select-group select:hover {
+    border-color: rgba(116, 62, 228, 0.8);
+    background: rgba(25, 15, 35, 0.8);
+    filter: brightness(0.9);
+    box-shadow: 0 12px 15px rgba(116, 62, 228, 0.15);
+    transform: scale(1.02);
 }
 
-#generate-btn:active {
-    transform: translateY(0);
+section article .select-group select:focus {
+    outline: none;
+    border-color: #9d7bf0;
+    filter: brightness(1);
+    box-shadow: 
+        0 0 20px rgba(157, 123, 240, 0.4),
+        inset 0 0 50px rgba(116, 62, 228, 0.2);
+}
+
+section article #generate-btn {
+    position: relative;
+    z-index: 10;
+    margin-top: 25px;
+    padding: 18px 25px;
+    background: linear-gradient(
+        135deg,
+        rgba(116, 62, 228, 0.9),
+        rgba(61, 31, 122, 0.9)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(116, 62, 228, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+section article #generate-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: rotate 10s linear infinite;
+}
+
+section article #generate-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(
+        135deg,
+        rgba(138, 92, 240, 0.95),
+        rgba(74, 42, 158, 0.95)
+    );
+}
+
+section article #generate-btn:hover::before {
+    opacity: 1;
+}
+
+section article #generate-btn:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(116, 62, 228, 0.4);
+}
+
+/* Анимации */
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes nebulaDrift {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(2%, 2%) scale(1.05); }
+    100% { transform: translate(-2%, -1%) scale(0.95); }
+}
+
+@keyframes nebulaDriftReverse {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-3%, -2%) scale(1.03); }
+    100% { transform: translate(2%, 3%) scale(0.97); }
+}
+
+@keyframes planetFloat {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-5px, 5px) rotate(2deg); }
+    66% { transform: translate(5px, -3px) rotate(-2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes starFloat {
+    0% { transform: translate(0, 0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translate(20px, -20px); opacity: 0; }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 section footer {
@@ -162,4 +362,27 @@ aside h3 {
     color: #e0d9fc;
     font-weight: 600;
     text-shadow: 0 0 8px rgba(116, 62, 228, 0.5);
+}
+
+
+
+
+
+/* Стилизация выпадающего списка */
+section article .select-group select option {
+    background: #1a0f2a;
+    color: white;
+    padding: 12px;
+    border: none;
+    font-size: 15px;
+    text-shadow: 0 0 5px rgba(116, 62, 228, 0.5);
+}
+
+section article .select-group select option:hover {
+    background: linear-gradient(135deg, #743ee4, #3d1f7a);
+}
+
+section article .select-group select option:checked {
+    background: linear-gradient(135deg, #743ee4, #3d1f7a);
+    color: white;
 }

@@ -1,3 +1,13 @@
+const getLabNumber = () => {
+    try {
+       return window.location.pathname.split('/')[2][3];
+    } catch {
+        return null;
+    }
+}
+
+const labNumber = getLabNumber();
+
 document.body.insertAdjacentHTML('afterbegin', `
     <div class="app-header__wrapper">
         <header class="app-header">
@@ -20,7 +30,13 @@ document.body.insertAdjacentHTML('afterbegin', `
 
         <a href="../../index.html" class="app-header__logo">
             <img src="../../assets/images/images/app_logo.png" alt="app logo">
+
+            ${
+                labNumber ? `<span class="lab-number">Lab №${getLabNumber()}</span>` : ``
+            }
         </a>
+
+
 
         <div class="app-header__link__wrapper">
                 <a href="www.linkedin.com/in/anton-filiuta-336951314" class="app-header__link" data-link-type="linkedin">
