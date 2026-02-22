@@ -325,7 +325,6 @@ class SupermarketSurvey {
     }
 
     openResultsWindow() {
-        // Параметры окна согласно заданию
         const width = 800;
         const height = 600;
         const left = (screen.width - width) / 2;
@@ -341,7 +340,6 @@ class SupermarketSurvey {
             'status=yes'
         ].join(',');
         
-        // Открываем новое окно
         window.open(
             'results.html', 
             'SurveyResults', 

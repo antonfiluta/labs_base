@@ -1,21 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Labs Launcher</title>
+    <title>Lab 5 | Web Labs Launcher</title>
 
     <link rel="stylesheet" href="style.css">
-
     <link rel="icon" type="image/png" href="../../assets/images/favicon/WLL_favicon.png">
     <meta name="msapplication-TileColor" content="#191919">
     <meta name="theme-color" content="#191919">
 </head>
 <body>
-    <main>
-        
+    <main class="lab-container">
+        <div class="lab-header">
+            <h1>🚗 Информация об автомобилях</h1>
+            <p class="lab-subtitle">Лабораторная работа №5 | Объекты JavaScript</p>
+            <a href="../../index.html" class="back-link">← Назад в лаунчер</a>
+        </div>
+
+        <div class="lab-content">
+            <section class="form-section">
+                <h2>📝 Форма заполнения</h2>
+                <form id="carForm" class="car-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="brand">Марка *</label>
+                            <input type="text" id="brand" name="brand" placeholder="Toyota" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="model">Модель *</label>
+                            <input type="text" id="model" name="model" placeholder="Camry" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="year">Год выпуска *</label>
+                            <input type="number" id="year" name="year" min="1900" max="2026" step="1" value="2020" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="color">Цвет</label>
+                            <input type="text" id="color" name="color" placeholder="Black">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="price">Цена ($) *</label>
+                            <input type="number" id="price" name="price" min="1000" step="1000" value="15000" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fuelType">Тип топлива</label>
+                            <select id="fuelType" name="fuelType">
+                                <option value="бензин">Бензин</option>
+                                <option value="дизель">Дизель</option>
+                                <option value="гибрид">Гибрид</option>
+                                <option value="электро">Электро</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">➕ Добавить запись</button>
+                        <button type="button" class="btn btn-secondary" id="clearFormBtn">🗑️ Очистить форму</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="control-section">
+                <h2>🔧 Управление записями</h2>
+                
+                <div class="control-row">
+                    <div class="select-group">
+                        <label for="recordSelect">Выберите ID записи:</label>
+                        <select id="recordSelect" class="record-select">
+                            <option value="">-- Выберите ID --</option>
+                        </select>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn btn-danger" id="deleteBtn"> ❌ Удалить выбранную</button>
+                    </div>
+                </div>
+
+                <div class="property-group">
+                    <h3>➕ Добавление нового свойства</h3>
+                    <div class="property-row">
+                        <input type="text" id="newPropertyName" placeholder="Название свойства (например: engineVolume)">
+                        <input type="text" id="newPropertyValue" placeholder="Значение свойства">
+                        <button class="btn btn-primary" id="addPropertyBtn">✨ Добавить свойство</button>
+                    </div>
+                    <div id="newPropertyDisplay" class="property-display"></div>
+                </div>
+            </section>
+
+            <section class="functions-section">
+                <h2>🎯 Специальные функции</h2>
+                <div class="functions-row">
+                    <button class="btn btn-info" id="filterByFuelBtn">⛽ Показать авто по типу топлива</button>
+                    <div class="filter-input">
+                        <select id="fuelFilterSelect">
+                            <option value="бензин">Бензин</option>
+                            <option value="дизель">Дизель</option>
+                            <option value="гибрид">Гибрид</option>
+                            <option value="электро">Электро</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="filterResult" class="filter-result"></div>
+            </section>
+
+            <section class="table-section">
+                <h2>📊 Таблица автомобилей</h2>
+                <div class="table-container">
+                    <table id="carsTable" class="cars-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Марка</th>
+                                <th>Модель</th>
+                                <th>Год</th>
+                                <th>Цвет</th>
+                                <th>Цена ($)</th>
+                                <th>Топливо</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <td colspan="7" class="empty-table">Нет данных. Добавьте первую запись!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
     </main>
 
     <script src="../../scripts/layout.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
