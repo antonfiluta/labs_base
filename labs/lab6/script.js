@@ -197,7 +197,6 @@ class EditableCargoService extends CargoService {
         this.serviceLists.set(listIndex, list);
         this.render();
         this.updateStats();
-        this.renderAdditionalInfo();
         this.showNotification(`Услуга добавлена в список ${listIndex + 1}`, 'success');
         return true;
     }
@@ -234,58 +233,8 @@ class EditableCargoService extends CargoService {
         this.descriptions.set(blockIndex, descriptions);
         this.render();
         this.updateStats();
-        this.renderAdditionalInfo();
         this.showNotification(`Описание добавлено в блок ${blockIndex + 1}`, 'success');
         return true;
-    }
-    
-    getAllServicesAsString() {
-        let result = '';
-        for (let [index, list] of this.serviceLists) {
-            result += `Список ${index + 1}: ${list.join(', ')}\n`;
-        }
-        return result;
-    }
-    
-    searchServices(keyword) {
-        const results = [];
-        
-        for (let [listIndex, list] of this.serviceLists) {
-            const matches = list.filter(item => 
-                item.toLowerCase().includes(keyword.toLowerCase())
-            );
-            
-            if (matches.length > 0) {
-                results.push({
-                    list: listIndex + 1,
-                    services: matches
-                });
-            }
-        }
-        
-        return results;
-    }
-    
-    renderAdditionalInfo() {
-        const infoDiv = document.getElementById('additionalInfo');
-        if (!infoDiv) return;
-        
-        let html = '<div class="info-tag">📊 Map услуг:</div>';
-        
-        this.serviceLists.forEach((list, index) => {
-            html += `<div class="info-tag">📋 Список ${index + 1}: ${list.length} услуг</div>`;
-        });
-        
-        html += '<div class="info-tag">📝 Map описаний:</div>';
-        
-        this.descriptions.forEach((descriptions, index) => {
-            html += `<div class="info-tag">📌 Блок ${index + 1}: ${descriptions.length} описаний</div>`;
-            descriptions.forEach((desc, i) => {
-                html += `<div class="info-tag" style="margin-left: 20px;">📄 ${i+1}. ${desc.substring(0, 30)}...</div>`;
-            });
-        });
-        
-        infoDiv.innerHTML = html;
     }
 }
 
@@ -294,7 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     serviceApp.render();
     serviceApp.updateStats();
-    serviceApp.renderAdditionalInfo();
     
     window.serviceApp = serviceApp;
     

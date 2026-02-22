@@ -1,21 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Labs Launcher</title>
+    <title>Lab 7 | Web Labs Launcher</title>
 
     <link rel="stylesheet" href="style.css">
-
     <link rel="icon" type="image/png" href="../../assets/images/favicon/WLL_favicon.png">
     <meta name="msapplication-TileColor" content="#191919">
     <meta name="theme-color" content="#191919">
 </head>
 <body>
-    <main>
-        
+    <main class="lab-container">
+        <div class="lab-header">
+            <h1>🎨 Настраиваемые блоки</h1>
+            <p class="lab-subtitle">Лабораторная работа №7 | bind(), call(), apply() и замыкания</p>
+            <a href="../../index.html" class="back-link">← Назад в лаунчер</a>
+        </div>
+
+        <section class="control-section">
+            <h2>⚙️ Настройка блока</h2>
+            
+            <div class="control-panel">
+                <div class="control-group">
+                    <h3>🎯 Выберите блок</h3>
+                    <div class="control-row">
+                        <select id="blockSelector" class="control-select">
+                            <option value="0">Блок 1</option>
+                            <option value="1">Блок 2</option>
+                            <option value="2">Блок 3</option>
+                        </select>
+                        <button id="createBlockBtn" class="btn btn-primary">✨ Создать/Обновить блок</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>📐 Размеры и позиция</h3>
+                    <div class="control-row">
+                        <div class="control-item">
+                            <label>Ширина:</label>
+                            <select id="widthSelect" class="control-select">
+                                <option value="200px">200px</option>
+                                <option value="300px" selected>300px</option>
+                                <option value="400px">400px</option>
+                                <option value="500px">500px</option>
+                                <option value="600px">600px</option>
+                            </select>
+                        </div>
+                        <div class="control-item">
+                            <label>Высота:</label>
+                            <select id="heightSelect" class="control-select">
+                                <option value="150px">150px</option>
+                                <option value="250px" selected>250px</option>
+                                <option value="350px">350px</option>
+                                <option value="450px">450px</option>
+                                <option value="550px">550px</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-row">
+                        <div class="control-item">
+                            <label>Отступ сверху (top):</label>
+                            <select id="topSelect" class="control-select">
+                                <option value="20px">20px</option>
+                                <option value="50px">50px</option>
+                                <option value="100px">100px</option>
+                                <option value="150px">150px</option>
+                                <option value="200px">200px</option>
+                            </select>
+                        </div>
+                        <div class="control-item">
+                            <label>Отступ слева (left):</label>
+                            <select id="leftSelect" class="control-select">
+                                <option value="20px">20px</option>
+                                <option value="50px">50px</option>
+                                <option value="100px">100px</option>
+                                <option value="150px">150px</option>
+                                <option value="200px">200px</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>🎨 Стилизация</h3>
+                    <div class="control-row">
+                        <div class="control-item">
+                            <label>Цвет фона:</label>
+                            <select id="bgColorSelect" class="control-select">
+                                <option value="#743ee4">Фиолетовый</option>
+                                <option value="#e43e3e">Красный</option>
+                                <option value="#3ee43e">Зеленый</option>
+                                <option value="#3e3ee4">Синий</option>
+                                <option value="#e4e43e">Желтый</option>
+                            </select>
+                        </div>
+                        <div class="control-item">
+                            <label>Рамка:</label>
+                            <select id="borderSelect" class="control-select">
+                                <option value="none">Без рамки</option>
+                                <option value="1px solid white">Тонкая белая</option>
+                                <option value="2px solid #743ee4">Толстая фиолетовая</option>
+                                <option value="3px dashed #ff6b6b">Пунктирная красная</option>
+                                <option value="5px double #4ecdc4">Двойная бирюзовая</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>📝 Содержимое</h3>
+                    <div class="control-row">
+                        <div class="control-item">
+                            <label>Заголовок:</label>
+                            <select id="titleSelect" class="control-select">
+                                <option value="Товар 1">Товар 1</option>
+                                <option value="Товар 2">Товар 2</option>
+                                <option value="Товар 3">Товар 3</option>
+                                <option value="Спецпредложение">Спецпредложение</option>
+                                <option value="Новинка">Новинка</option>
+                            </select>
+                        </div>
+                        <div class="control-item">
+                            <label>Картинка:</label>
+                            <select id="imageSelect" class="control-select">
+                                <option value="📱">Телефон 📱</option>
+                                <option value="💻">Ноутбук 💻</option>
+                                <option value="📺">Телевизор 📺</option>
+                                <option value="🎧">Наушники 🎧</option>
+                                <option value="⌚">Часы ⌚</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-row">
+                        <div class="control-item full-width">
+                            <label>Текст:</label>
+                            <select id="textSelect" class="control-select">
+                                <option value="Отличный товар по доступной цене">Отличный товар по доступной цене</option>
+                                <option value="Хип продаж этого сезона">Хит продаж этого сезона</option>
+                                <option value="Гарантия качества 2 года">Гарантия качества 2 года</option>
+                                <option value="Бесплатная доставка по городу">Бесплатная доставка по городу</option>
+                                <option value="Скидка 20% при заказе сегодня">Скидка 20% при заказе сегодня</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>🔧 Демонстрация bind/call/apply</h3>
+                    <div class="control-row">
+                        <button id="applyToAllBtn" class="btn btn-secondary">📋 Применить ко всем (apply)</button>
+                        <button id="callToSelectedBtn" class="btn btn-secondary">📌 Применить к выбранному (call)</button>
+                        <button id="bindNewStyleBtn" class="btn btn-secondary">✨ Новая функция с параметрами (bind)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blocks-section">
+            <h2>📦 Созданные блоки</h2>
+            <div id="blocksContainer" class="blocks-container"></div>
+        </section>
+
+        <section class="info-section">
+            <h2>ℹ️ Информация о блоках</h2>
+            <div id="blocksInfo" class="blocks-info"></div>
+        </section>
     </main>
 
-    <script src="../../scripts/layout.js"></script>
+    <script src="script.js"></script>
+    <!-- <script src="../../scripts/layout.js"></script> -->
 </body>
 </html>

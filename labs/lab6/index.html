@@ -12,29 +12,22 @@
 </head>
 <body>
     <main class="lab-container">
-        <!-- Заголовок -->
         <div class="lab-header">
             <h1>🚚 Услуги перевозки грузов</h1>
             <p class="lab-subtitle">Лабораторная работа №6 | Классы и наследование</p>
             <a href="../../index.html" class="back-link">← Назад в лаунчер</a>
         </div>
 
-        <!-- Основной контент -->
         <div class="lab-content">
-            <!-- Блок с услугами (будет заполняться через JS) -->
             <section class="services-section">
                 <h2>📋 Наши услуги</h2>
-                <div id="servicesContainer" class="services-container">
-                    <!-- JS будет вставлять сюда списки и параграфы -->
-                </div>
+                <div id="servicesContainer" class="services-container"></div>
             </section>
 
-            <!-- Панель управления -->
             <section class="control-section">
                 <h2>🎮 Управление контентом</h2>
                 
                 <div class="control-panel">
-                    <!-- Добавление новой услуги в список -->
                     <div class="control-group">
                         <h3>➕ Новая услуга</h3>
                         <div class="control-row">
@@ -75,25 +68,23 @@
                             <button id="addDescriptionBtn" class="btn btn-primary">📝 Вставить</button>
                         </div>
                     </div>
-
-                    <div class="info-panel">
-                        <h3>📊 Статистика</h3>
-                        <div id="statsDisplay" class="stats-display"></div>
-                    </div>
                 </div>
+            </section>
+
+            <section>
+                <h3>📊 Статистика</h3>
+                <div id="statsDisplay" class="stats-display"></div>
             </section>
 
             <section class="info-section">
                 <h2>ℹ️ О компании</h2>
                 <div class="info-content">
                     <p>Мы предоставляем полный спектр услуг по перевозке грузов любой сложности. В наших списках представлены основные направления деятельности.</p>
-                    <div id="additionalInfo" class="additional-info"></div>
                 </div>
             </section>
-        </div>
     </main>
 
-    <!-- <script src="../../scripts/layout.js"></script> -->
+    <script src="../../scripts/layout.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
