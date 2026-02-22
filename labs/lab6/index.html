@@ -1,21 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Labs Launcher</title>
+    <title>Lab 6: Услуги перевозки грузов | Web Labs Launcher</title>
 
     <link rel="stylesheet" href="style.css">
-
     <link rel="icon" type="image/png" href="../../assets/images/favicon/WLL_favicon.png">
     <meta name="msapplication-TileColor" content="#191919">
     <meta name="theme-color" content="#191919">
 </head>
 <body>
-    <main>
+    <main class="lab-container">
+        <!-- Заголовок -->
+        <div class="lab-header">
+            <h1>🚚 Услуги перевозки грузов</h1>
+            <p class="lab-subtitle">Лабораторная работа №6 | Классы и наследование</p>
+            <a href="../../index.html" class="back-link">← Назад в лаунчер</a>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="lab-content">
+            <!-- Блок с услугами (будет заполняться через JS) -->
+            <section class="services-section">
+                <h2>📋 Наши услуги</h2>
+                <div id="servicesContainer" class="services-container">
+                    <!-- JS будет вставлять сюда списки и параграфы -->
+                </div>
+            </section>
+
+            <!-- Панель управления -->
+            <section class="control-section">
+                <h2>🎮 Управление контентом</h2>
+                
+                <div class="control-panel">
+                    <!-- Добавление новой услуги в список -->
+                    <div class="control-group">
+                        <h3>➕ Новая услуга</h3>
+                        <div class="control-row">
+                            <input type="text" id="newServiceInput" placeholder="Введите название услуги" class="control-input">
+                            <select id="serviceListSelect" class="control-select">
+                                <option value="0">В список 1</option>
+                                <option value="1">В список 2</option>
+                                <option value="2">В список 3</option>
+                            </select>
+                            <select id="servicePositionSelect" class="control-select">
+                                <option value="begin">В начало списка</option>
+                                <option value="end" selected>В конец списка</option>
+                                <option value="after1">После 1 элемента</option>
+                                <option value="after2">После 2 элемента</option>
+                                <option value="after3">После 3 элемента</option>
+                            </select>
+                            <button id="addServiceBtn" class="btn btn-primary">➕ Добавить</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>📝 Новое описание</h3>
+                        <div class="control-row">
+                            <input type="text" id="newDescriptionInput" placeholder="Введите описание услуги" class="control-input">
         
+                                <select id="descriptionBlockSelect" class="control-select">
+                                    <option value="0">В блок 1</option>
+                                    <option value="1">В блок 2</option>
+                                    <option value="2">В блок 3</option>
+                                </select>
+                                
+                                <select id="descriptionPositionSelect" class="control-select">
+                                    <option value="before">До первого описания</option>
+                                    <option value="after">После последнего описания</option>
+                                    <option value="after1">После описания 1</option>
+                                    <option value="after2">После описания 2</option>
+                                </select>
+                            <button id="addDescriptionBtn" class="btn btn-primary">📝 Вставить</button>
+                        </div>
+                    </div>
+
+                    <div class="info-panel">
+                        <h3>📊 Статистика</h3>
+                        <div id="statsDisplay" class="stats-display"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>ℹ️ О компании</h2>
+                <div class="info-content">
+                    <p>Мы предоставляем полный спектр услуг по перевозке грузов любой сложности. В наших списках представлены основные направления деятельности.</p>
+                    <div id="additionalInfo" class="additional-info"></div>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <script src="../../scripts/layout.js"></script>
+    <!-- <script src="../../scripts/layout.js"></script> -->
+    <script src="script.js"></script>
 </body>
 </html>
