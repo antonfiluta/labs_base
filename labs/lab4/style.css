@@ -2,7 +2,6 @@
 @import url(info-sidebar.css);
 
 
-/* Основной контейнер */
 main {
     display: flex;
     gap: 2rem;
@@ -10,9 +9,12 @@ main {
     width: 100%;
 }
 
-/* Карточка опроса */
+
+
+/* survey-container */
 .survey-container {
     position: relative;
+    width: 60%;
 }
 
 .survey-card {
@@ -23,38 +25,17 @@ main {
     padding: 2rem;
     box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
+    animation: slideIn 0.5s ease-out forwards;
 }
 
 .survey-card:hover {
     border-color: rgba(116, 62, 228, 0.4);
     box-shadow: 0 30px 50px -20px rgba(116, 62, 228, 0.4);
 }
-/* 
-.back-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #c4b5fd;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.3rem 1rem;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.back-link:hover {
-    background: rgba(116, 62, 228, 0.2);
-    border-color: #743ee4;
-    transform: translateX(-3px);
-}  */
 
 
-/* Заголовки */
+
+/* survey-header */
 .survey-header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -81,13 +62,15 @@ main {
     color: #ffffff;
     font-size: 1.3rem;
     font-weight: 600;
-    margin: 2rem 0 1.5rem;
+    margin: 2rem 0 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(116, 62, 228, 0.5);
+    border-bottom: 2px solid rgba(117, 62, 228, 0.284);
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Форма */
+
+
+/* Form */
 .survey-form {
     display: flex;
     flex-direction: column;
@@ -108,29 +91,29 @@ main {
     letter-spacing: 0.5px;
 }
 
-/* Инпуты */
+/* Inputs */
 input:not([type="checkbox"]):not([type="radio"]):not([type="image"]),
 select,
 textarea {
     width: 100%;
     padding: 1rem 1.2rem;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    border-radius: 10px;
     color: white;
     font-size: 1rem;
     font-family: inherit;
     transition: all 0.3s ease;
 }
 
-input:focus,
+input:not([type="checkbox"]):not([type="radio"]):not([type="image"]):focus,
 select:focus,
 textarea:focus {
     outline: none;
     border-color: #743ee4;
     box-shadow: 0 0 0 3px rgba(116, 62, 228, 0.3);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
 }
 
 input::placeholder,
@@ -153,14 +136,16 @@ select option {
     color: white;
 }
 
-/* Checkbox group */
+/* Checkbox */
 .checkbox-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 140px;
     gap: 1rem;
     background: rgba(255, 255, 255, 0.03);
     padding: 1.2rem;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -188,14 +173,16 @@ select option {
     accent-color: #743ee4;
 }
 
-/* Radio group */
+/* Radio */
 .radio-group {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    height: 140px;
     gap: 1rem;
     background: rgba(255, 255, 255, 0.03);
     padding: 1.2rem;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -205,11 +192,9 @@ select option {
     font-weight: 600;
 }
 
-/* Number input */
-input[type="number"] {
-    -moz-appearance: textfield;
-}
 
+
+/* Number input */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     opacity: 0.5;
@@ -222,7 +207,9 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-top: 0.2rem;
 }
 
-/* Кнопки */
+
+
+/* Buttons */
 .form-actions {
     display: flex;
     gap: 1rem;
@@ -278,39 +265,35 @@ input[type="number"]::-webkit-outer-spin-button {
     filter: brightness(0) invert(1);
 }
 
-/* Список предыдущих участников */
-.previous-participants {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+
+
+
+
+
+
+.error-field {
+    border-color: #ff6b6b !important;
+    animation: shake 0.3s ease;
 }
 
-.previous-participants h3 {
-    color: #ffffff;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    text-align: center;
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #ff6b6b;
 }
 
-.participants-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
+.checkbox-error {
+    margin-top: 0.5rem;
+    text-align: left;
 }
 
-.participant-badge {
-    background: rgba(116, 62, 228, 0.2);
-    border: 1px solid rgba(116, 62, 228, 0.3);
-    border-radius: 30px;
-    padding: 0.5rem 1.2rem;
-    color: #ffffff;
-    font-size: 0.9rem;
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-}
-
-.participant-badge:hover {
-    background: rgba(116, 62, 228, 0.4);
-    transform: translateY(-2px);
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
 }

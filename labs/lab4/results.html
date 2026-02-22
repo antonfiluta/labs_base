@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Results | Web Labs Launcher</title>
+
+    <link rel="stylesheet" href="results.css">
+
+    <link rel="icon" type="image/png" href="../../assets/images/favicon/WLL_favicon.png">
+    <meta name="msapplication-TileColor" content="#191919">
+    <meta name="theme-color" content="#191919">
+</head>
+<body>
+    <main class="results-main">
+        <div class="results-container glass-effect">
+            <div class="results-header">
+                <h1>Survey Results</h1>
+                <p class="results-subtitle">Current submission and historical data</p>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="window.close()">Close Window</button>
+                    <button class="btn btn-primary" onclick="window.surveyResults.printResults()">Print Results</button>
+                </div>
+            </div>
+
+            <section class="current-survey-section">
+                <h2>📋 Current Submission</h2>
+                <div id="currentSurvey" class="current-survey-card">
+                    <div class="loading-spinner">Loading...</div>
+                </div>
+            </section>
+
+            <section class="all-results-section">
+                <h2>📊 All Survey Results</h2>
+                <div class="table-container">
+                    <table id="resultsTable" class="results-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Departments</th>
+                                <th>Frequency</th>
+                                <th>Satisfaction</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="participants-section">
+                <h2>👥 Previous Participants</h2>
+                <div class="participants-select-wrapper">
+                    <label for="participantsSelect">Select a participant:</label>
+                    <select id="participantsSelect" class="participants-select" size="5"></select>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h2>📈 Quick Stats</h2>
+                <div class="stats-grid" id="statsGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="results.js"></script>
+</body>
+</html>
