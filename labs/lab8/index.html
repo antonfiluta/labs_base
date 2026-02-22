@@ -1,21 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Labs Launcher</title>
+    <title>Lab 8 | Web Labs Launcher</title>
 
     <link rel="stylesheet" href="style.css">
-
     <link rel="icon" type="image/png" href="../../assets/images/favicon/WLL_favicon.png">
     <meta name="msapplication-TileColor" content="#191919">
     <meta name="theme-color" content="#191919">
 </head>
 <body>
-    <main>
-        
-    </main>
+    <main class="lab-container">
+        <!-- Заголовок -->
+        <div class="lab-header">
+            <h1>⏰ Таймер обратного отсчёта</h1>
+            <p class="lab-subtitle">Лабораторная работа №8 | setTimeout, setInterval и коллекции</p>
+            <a href="../../index.html" class="back-link">← Назад в лаунчер</a>
+        </div>
 
+        <!-- Основной контент -->
+        <div class="lab-content">
+            <!-- Панель управления -->
+            <section class="control-section">
+                <h2>⚙️ Настройки акции</h2>
+                
+                <div class="control-panel">
+                    <div class="control-group">
+                        <h3>⏱️ Временные параметры</h3>
+                        
+                        <div class="control-row">
+                            <div class="control-item">
+                                <label for="promoTime">Время действия акции (секунд):</label>
+                                <input type="number" id="promoTime" class="control-input" min="5" max="300" value="60">
+                            </div>
+                            
+                            <div class="control-item">
+                                <label for="intervalTime">Интервал между цифрами (секунд):</label>
+                                <input type="number" id="intervalTime" class="control-input" min="1" max="30" value="5">
+                            </div>
+                        </div>
+                        
+                        <div class="control-row">
+                            <div class="control-item">
+                                <label for="productSelect">Выберите товар:</label>
+                                <select id="productSelect" class="control-select">
+                                    <option value="Ноутбук XPS 13">Ноутбук XPS 13</option>
+                                    <option value="Смартфон Galaxy S25">Смартфон Galaxy S25</option>
+                                    <option value="Планшет iPad Pro">Планшет iPad Pro</option>
+                                    <option value="Наушники AirPods Pro">Наушники AirPods Pro</option>
+                                    <option value="Умные часы Watch 8">Умные часы Watch 8</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-item">
+                                <label for="discountSelect">Скидка:</label>
+                                <select id="discountSelect" class="control-select">
+                                    <option value="10">10%</option>
+                                    <option value="15">15%</option>
+                                    <option value="20">20%</option>
+                                    <option value="25">25%</option>
+                                    <option value="30">30%</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="control-actions">
+                            <button id="startTimerBtn" class="btn btn-primary">▶ Запустить акцию</button>
+                            <button id="pauseTimerBtn" class="btn btn-secondary" disabled>⏸ Пауза</button>
+                            <button id="resetTimerBtn" class="btn btn-danger" disabled>↺ Сброс</button>
+                        </div>
+                    </div>
+                    
+                    <div class="info-group">
+                        <h3>📊 Состояние</h3>
+                        <div class="info-row">
+                            <span class="info-label">Статус:</span>
+                            <span id="statusDisplay" class="info-value status-waiting">Ожидание запуска</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Осталось времени:</span>
+                            <span id="timeDisplay" class="info-value time-value">--:--</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Текущая цифра:</span>
+                            <span id="currentNumberDisplay" class="info-value number-value">—</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Рекламный блок -->
+            <section class="promo-section">
+                <h2>🎉 Горячая акция!</h2>
+                
+                <div class="promo-block" id="promoBlock">
+                    <div class="promo-header">
+                        <h3 id="promoTitle">Ноутбук XPS 13</h3>
+                        <span class="promo-badge" id="promoDiscount">-20%</span>
+                    </div>
+                    
+                    <div class="promo-content">
+                        <div class="promo-image" id="promoImage">💻</div>
+                        <div class="promo-details">
+                            <p class="promo-description" id="promoDescription">
+                                Супер цена! Успей купить по выгодной цене.
+                            </p>
+                            <div class="promo-price">
+                                <span class="old-price" id="oldPrice">1000$</span>
+                                <span class="new-price" id="newPrice">800$</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Контейнер для цифр (картинок) -->
+                    <div class="numbers-container" id="numbersContainer">
+                        <!-- Сюда будут выводиться цифры -->
+                    </div>
+                    
+                    <!-- Прогресс-бар -->
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Информация о коллекциях -->
+            <section class="info-section">
+                <h2>📚 Коллекции данных</h2>
+                
+                <div class="collections-grid">
+                    <!-- Map с товарами -->
+                    <div class="collection-card">
+                        <h3>📦 Map: Товары и цены</h3>
+                        <div id="productsMapDisplay" class="collection-display">
+                            <!-- Заполняется через JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Map с цифрами -->
+                    <div class="collection-card">
+                        <h3>🔢 Map: Цифры для отображения</h3>
+                        <div id="numbersMapDisplay" class="collection-display">
+                            <!-- Заполняется через JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Set с историей -->
+                    <div class="collection-card">
+                        <h3>📜 Set: История акций</h3>
+                        <div id="historySetDisplay" class="collection-display">
+                            <!-- Заполняется через JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
     <script src="script.js"></script>
     <script src="../../scripts/layout.js"></script>
