@@ -1,32 +1,21 @@
-// ===============================================
-// LAB 8 - ТАЙМЕР ОБРАТНОГО ОТСЧЁТА
-// setTimeout, setInterval и коллекции
-// Вариант 13 - ИТОГОВАЯ ВЕРСИЯ
-// ===============================================
-
 class PromoTimer {
     constructor() {
-        // Коллекции для хранения данных
-        this.products = new Map(); // Map для товаров
-        this.history = new Set();   // Set для истории акций
+        this.products = new Map();
+        this.history = new Set();
         
-        // Состояние таймера
         this.timerInterval = null;
-        this.timeoutIds = [];       // Массив для хранения setTimeout
+        this.timeoutIds = [];
         this.remainingTime = 0;
         this.totalTime = 0;
         this.isRunning = false;
         this.isPaused = false;
         
-        // Инициализация
         this.initData();
         this.initEventListeners();
         this.renderCollections();
     }
     
-    // Инициализация тестовых данных
     initData() {
-        // Map с товарами
         this.products.set('Ноутбук XPS 13', {
             price: 1200,
             description: 'Мощный ноутбук для работы и игр',
@@ -63,7 +52,6 @@ class PromoTimer {
         });
     }
     
-    // Инициализация обработчиков событий
     initEventListeners() {
         document.getElementById('startTimerBtn').addEventListener('click', () => this.startTimer());
         document.getElementById('pauseTimerBtn').addEventListener('click', () => this.pauseTimer());
@@ -73,7 +61,6 @@ class PromoTimer {
         document.getElementById('discountSelect').addEventListener('change', () => this.updatePromoBlock());
     }
     
-    // Обновление промо-блока
     updatePromoBlock() {
         const productName = document.getElementById('productSelect').value;
         const discount = parseInt(document.getElementById('discountSelect').value);
@@ -91,7 +78,6 @@ class PromoTimer {
         }
     }
     
-    // Запуск таймера
     startTimer() {
         if (this.isRunning) return;
         
@@ -103,22 +89,18 @@ class PromoTimer {
         this.isRunning = true;
         this.isPaused = false;
         
-        // Очищаем предыдущие timeout'ы
         this.clearAllTimeouts();
         
-        // Обновление UI
         this.updateButtonStates();
         document.getElementById('statusDisplay').textContent = 'Акция активна';
         document.getElementById('statusDisplay').className = 'info-value status-running';
         this.updateTimeDisplay();
         
-        // Сохраняем в историю
         const productName = document.getElementById('productSelect').value;
         const discount = document.getElementById('discountSelect').value;
         this.history.add(`${new Date().toLocaleTimeString()}: ${productName} -${discount}%`);
         this.renderCollections();
         
-        // Основной таймер (setInterval)
         this.timerInterval = setInterval(() => {
             if (!this.isPaused && this.remainingTime > 0) {
                 this.remainingTime--;
@@ -131,11 +113,9 @@ class PromoTimer {
             }
         }, 1000);
         
-        // Запускаем показ оставшегося времени
         this.startTimeDisplay(intervalTime);
     }
     
-    // Запуск отображения оставшегося времени
     startTimeDisplay(intervalTime) {
         const showRemainingTime = () => {
             if (this.remainingTime <= 0) return;
@@ -152,7 +132,6 @@ class PromoTimer {
         this.timeoutIds.push(firstTimeoutId);
     }
     
-    // Отображение текущего оставшегося времени
     showCurrentTime() {
         const container = document.getElementById('numbersContainer');
         
@@ -180,7 +159,6 @@ class PromoTimer {
         }, 800);
     }
     
-    // Пауза/возобновление
     pauseTimer() {
         if (!this.isRunning) return;
         
@@ -201,13 +179,11 @@ class PromoTimer {
         }
     }
     
-    // Очистка всех setTimeout
     clearAllTimeouts() {
         this.timeoutIds.forEach(id => clearTimeout(id));
         this.timeoutIds = [];
     }
     
-    // Сброс таймера
     resetTimer() {
         if (this.timerInterval) {
             clearInterval(this.timerInterval);
@@ -229,7 +205,6 @@ class PromoTimer {
         document.getElementById('progressBar').style.width = '100%';
     }
     
-    // Завершение таймера
     completeTimer() {
         if (this.timerInterval) {
             clearInterval(this.timerInterval);
@@ -255,7 +230,6 @@ class PromoTimer {
         this.renderCollections();
     }
     
-    // Обновление отображения времени
     updateTimeDisplay() {
         const minutes = Math.floor(this.remainingTime / 60);
         const seconds = this.remainingTime % 60;
@@ -263,20 +237,17 @@ class PromoTimer {
         document.getElementById('timeDisplay').textContent = timeString;
     }
     
-    // Обновление прогресс-бара
     updateProgressBar() {
         const percentage = (this.remainingTime / this.totalTime) * 100;
         document.getElementById('progressBar').style.width = `${percentage}%`;
     }
     
-    // Обновление состояния кнопок
     updateButtonStates() {
         document.getElementById('startTimerBtn').disabled = this.isRunning;
         document.getElementById('pauseTimerBtn').disabled = !this.isRunning;
         document.getElementById('resetTimerBtn').disabled = !this.isRunning;
     }
     
-    // Отображение коллекций
     renderCollections() {
         const productsDisplay = document.getElementById('productsMapDisplay');
         let productsHtml = '';
@@ -293,7 +264,6 @@ class PromoTimer {
         historyDisplay.innerHTML = historyHtml || '<div class="collection-item">История пуста</div>';
     }
     
-    // Показать сообщение о завершении
     showCompletionMessage() {
         const message = document.createElement('div');
         message.className = 'completion-message';
