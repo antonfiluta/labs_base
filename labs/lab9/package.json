@@ -1,0 +1,12 @@
+{
+  "name": "variant13-nodejs-lab",
+  "version": "1.0.0",
+  "description": "Лабораторная работа №13 - Обработка названий городов",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "Student",
+  "license": "ISC"
+}

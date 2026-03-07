@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 10: Обработка городов | Web Labs Launcher</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="../../../assets/images/favicon/WLL_favicon.png">
+    <meta name="msapplication-TileColor" content="#191919">
+    <meta name="theme-color" content="#191919">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="lab-header">
+                <h1>🏙️ Обработка названий городов</h1>
+                <p class="lab-subtitle">Лабораторная работа №10 | Node.js + File System</p>
+                <a href="../../../index.html" class="back-link">← Назад в лаунчер</a>
+            </div>
+
+            <div class="control-section">
+                <h2>📝 Ввод данных</h2>
+                
+                <div class="input-group">
+                    <label for="citiesInput">Введите названия городов (каждый с новой строки):</label>
+                    <textarea id="citiesInput" class="cities-textarea" placeholder="Например:
+москва
+санкт-петербург
+нОВОСИБИРСК
+екАтеринбург
+казань">москва
+санкт-петербург
+нОВОСИБИРСК
+екАтеринбург
+казань
+челябинск
+омск
+</textarea>
+                </div>
+
+                <div class="info-box">
+                    <h3>ℹ️ Что будет сделано:</h3>
+                    <ul class="info-list">
+                        <li>Первая буква станет заглавной</li>
+                        <li>Остальные буквы - строчные</li>
+                        <li>Сортировка по алфавиту</li>
+                        <li>Сохранение в файлы на сервере</li>
+                    </ul>
+                </div>
+
+                <div class="button-container">
+                    <button class="btn btn-primary" onclick="processCities()">
+                        🔄 Обработать города
+                    </button>
+                    <button class="btn btn-secondary" onclick="loadFromServer()">
+                        📂 Загрузить из файлов
+                    </button>
+                    <button class="btn btn-success" onclick="resetToDefault()">
+                        ↩️ Сброс к примеру
+                    </button>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <h2>📊 Результаты</h2>
+                
+                <div class="results-grid">
+                    <div class="result-card" id="originalCard" style="display: none;">
+                        <div class="card-header">
+                            <h3>📋 Исходные данные</h3>
+                            <span class="file-badge">original.txt</span>
+                        </div>
+                        <div class="card-content">
+                            <ol id="originalList" class="city-list original-list"></ol>
+                        </div>
+                    </div>
+
+                    <div class="result-card" id="processedCard" style="display: none;">
+                        <div class="card-header">
+                            <h3>✨ Обработанные данные</h3>
+                            <span class="file-badge">processed.txt</span>
+                        </div>
+                        <div class="card-content">
+                            <ol id="processedList" class="city-list processed-list"></ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="server-status">
+                <div class="status-indicator" id="statusIndicator"></div>
+                <span id="statusText">Проверка соединения...</span>
+            </div>
+
+            <div class="footer">
+                <p>Сервер: http://localhost:3000 | Данные сохраняются в файлы original.txt и processed.txt</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="client.js"></script>
+</body>
+</html>

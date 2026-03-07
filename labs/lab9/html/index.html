@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Labs Launcher</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/png" href="../../../assets/images/favicon/WLL_favicon.png">
+    <meta name="msapplication-TileColor" content="#191919">
+    <meta name="theme-color" content="#191919">
+</head>
+<body>
+    <main>
+        <div class="container glass-effect">
+            <h1>Обработка названий городов</h1>
+            <h2>Вариант №13</h2>
+            
+            <div class="info-box">
+                <h3>Исходные данные</h3>
+                <p>Массив содержит 20 названий городов с ошибками в регистре</p>
+            </div>
+
+            <div id="originalCitiesContainer" class="table-container">
+                <div style="text-align: center; padding: 30px;">
+                    <div class="spinner"></div>
+                    <p>Загрузка данных...</p>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button class="btn btn-primary" onclick="loadResults()">
+                    Обработать города
+                </button>
+                <button class="btn btn-secondary" onclick="window.location.href='/'">
+                    На главную
+                </button>
+            </div>
+
+            <div id="processedCitiesContainer" class="table-container" style="display: none;"></div>
+
+            <div class="footer">
+                <p>Лабораторная работа №9 - Введение в Node.js</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/client.js"></script>
+    <script src="../../../scripts/layout.js"></script>
+</body>
+</html>
